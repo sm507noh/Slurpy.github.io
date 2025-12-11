@@ -8,46 +8,37 @@
   margin: 125px auto 200px;
 }
 
-/* =======================================
-   1. 그리드 레이아웃 (옆으로 나란히 배치)
-   ======================================= */
 .recipe-section {
   display: grid;
-  /* 1fr (이미지 영역) | 50px (간격) | 540px (텍스트 영역) */
   grid-template-columns: 1fr 50px 540px; 
   margin-bottom: 200px;
-  height: auto; /* 내용 길이에 따라 높이 자동 결정 */
+  height: auto;
 }
 
-/* 🎯 이미지 영역 */
 .image-area {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
   width: 100%;
-  height: 100%; /* 부모 섹션의 높이를 채우도록 설정 */
+  height: 100%;
   background-color: var(--sub-bg);
 }
 
-/* 🚨 이미지 자체를 영역에 꽉 채우도록 설정 (이미지가 넘쳐서 아래로 밀리는 문제 방지) */
 .image-area img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* 이미지가 찌그러지지 않고 영역을 채우며, 잘릴 수 있음 */
+  object-fit: cover;
   display: block;
 }
 
-/* 🎯 텍스트 영역 (Flexbox로 하단 정렬) */
 .text-area {
   grid-column: 3 / 4;
   grid-row: 1 / 2;
   display: flex;
-  flex-direction: column; /* 세로 방향으로 요소 배치 */
+  flex-direction: column;
   width: 540px;
 }
 
-/* 짝수 번째 섹션 (순서 반전) */
 .recipe-section:nth-child(even) {
-  /* 540px (텍스트 영역) | 50px (간격) | 1fr (이미지 영역) */
   grid-template-columns: 540px 50px 1fr;
 }
 
@@ -58,32 +49,24 @@
   grid-column: 3 / 4;
 }
 
-/* =======================================
-   2. 텍스트 간격 및 하단 정렬
-   ======================================= */
-
-/* HTML의 <div class="header-area">에 해당 */
 .header-area {
     margin-bottom: 0;
 }
 
-/* 🎯 숫자 스타일 */
 .recipe-number {
   font-size: 20px;
   margin-bottom: 0; 
   margin-top: 0;
 }
 
-/* 🎯 타이틀 스타일: 숫자와 24px 간격 */
 .recipe-title {
   font-size: 64px;
   font-weight: bold;
   line-height: 1;
-  margin-bottom: 0; /* 서브타이틀과 0px 간격 */
-  margin-top: 24px; /* 숫자와 24px 간격 */
+  margin-bottom: 0;
+  margin-top: 24px;
 }
 
-/* 🎯 서브타이틀 스타일: 타이틀과 0px 간격 */
 .recipe-subtitle {
   font-size: 36px;
   font-weight: normal;
@@ -92,15 +75,11 @@
   margin-top: 0;
 }
 
-/* 🎯 본문/내용 영역: 하단 정렬 및 서브타이틀과의 간격 400px 처리 */
 .recipe-content {
-  /* 제목 영역 아래의 남은 공간을 확보하여, 본문을 가장 아래로 밀어냄 (하단 정렬 핵심) */
   margin-top: auto; 
-  /* 서브타이틀과 본문 시작 사이의 최소 간격 (400px) */
   padding-top: 400px; 
 }
 
-/* 나머지 본문 관련 스타일 */
 .recipe-body,
 .recipe-content ul li {
   font-size: 20px;
@@ -115,3 +94,4 @@
 .recipe-content ul li {
   margin-bottom: 10px;
 }
+
