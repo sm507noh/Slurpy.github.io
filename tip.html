@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slurpy</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="3grid.css">
+    <link rel="stylesheet" href="tip.css">
+    <link rel="stylesheet" href="style.css"> 
 </head>
-
-
-
 <body>
+    
     <header class="header">
         <a href="index.html" class="logo">Slurpy</a>
         <nav class="nav">
@@ -24,65 +22,55 @@
         </nav>
     </header>
 
-<div class="catalog-container">
-    <div class="ramen-grid">
-        <!-- 반복되는 아이템 -->
-        <div class="item">
-            <div class="thumb"><img src="nongsim/감자면.png" alt="감자면"></div>
-            <p class="name">감자면</p>
-            <p class="price">₩1,200</p>
+    <main class="tip-content">
+        <div class="tip-container">
+            
+            <div class="tip-item tip-item-1">
+                <div class="item-overlay">
+                    <span class="item-number">01</span>
+                    <div class="item-detail">
+                        <h2 class="title">01</h2>
+                        <h3 class="subtitle">스프와 면 투입 타이밍 조절</h3>
+                        <p class="body">물 끓기 시작하면 면 먼저, 면이 풀릴 때쯤 스프 투하해보세요! 맛이 훨씬 깔끔해진대요.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-item tip-item-2">
+                <div class="item-overlay">
+                    <span class="item-number">02</span>
+                    <div class="item-detail">
+                        <h2 class="title">02</h2>
+                        <h3 class="subtitle">면 익힐 때 젓가락으로 너무 휘젓지 않기</h3>
+                        <p class="body">면이 쉽게 퍼지고 흐트러질 수 있어요. 면은 두 번만 살짝 풀어주고 그대로 익히는게 맛있다고 합니다.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tip-item tip-item-3">
+                <div class="item-overlay">
+                    <span class="item-number">03</span>
+                    <div class="item-detail">
+                        <h2 class="title">03</h2>
+                        <h3 class="subtitle">화력은 강불 유지하기</h3>
+                        <p class="body">약불로 끓이면 면이 불어서 식감이 죽는다고 합니다. 끝까지 센 불 유지로 하고 마지막에 불 끄고 스프 마무리가 최적이래요.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-item tip-item-4">
+                <div class="item-overlay">
+                    <span class="item-number">04</span>
+                    <div class="item-detail">
+                        <h2 class="title">04</h2>
+                        <h3 class="subtitle">면수(전분) 조금 남기기</h3>
+                        <p class="body">볶음면의 면만 건져서 끓이면 밍밍해요. 면수 100ml 정도 남기면 감칠맛이 배가 된대요.</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
-
-        <div class="item">
-            <div class="thumb"><img src="nongsim/김치사발면.png" alt="김치사발면"></div>
-            <p class="name">김치사발면</p>
-            <p class="price">₩850</p>
-        </div>
-
-        <div class="item">
-            <div class="thumb"><img src="nongsim/너구리.png" alt="너구리"></div>
-            <p class="name">너구리</p>
-            <p class="price">₩1,000</p>
-        </div>
-
-
-
-        <div class="item">
-            <div class="thumb"><img src="nongsim/멸치칼국수.png" alt="멸치 칼국수"></div>
-            <p class="name">멸치 칼국수</p>
-            <p class="price">₩1,000</p>
-        </div>
-
-        <div class="item">
-            <div class="thumb"><img src="nongsim/배홍동칼빔면.png" alt="베홍동 칼빔면"></div>
-            <p class="name">배홍동 비빔면</p>
-            <p class="price">₩1,200</p>
-        </div>
-
-        <div class="item">
-            <div class="thumb"><img src="nongsim/오징어짬뽕.png" alt="오징어짬뽕"></div>
-            <p class="name">오징어 짬뽕</p>
-            <p class="price">₩1,000</p>
-        </div>
-
-
-
-        <div class="item">
-            <div class="thumb"><img src="nongsim/육개장사발면.png" alt="육개장 사발면"></div>
-            <p class="name">육개장 사발면</p>
-            <p class="price">₩455,000</p>
-        </div>
-
-        <div class="item">
-            <div class="thumb"><img src="nongsim/짜파게티.png" alt="짜파게티"></div>
-            <p class="name">짜파게티</p>
-            <p class="price">₩455,000</p>
-        </div>
-    </div>
-
-</div>
-
-
+    </main>
 
   <footer class="footer">
     <div class="footer-left">
@@ -96,5 +84,6 @@
       <p>E-mail sm507noh@kaywon.ac.kr</p>
     </div>
   </footer>
+
 </body>
 </html>
