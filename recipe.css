@@ -1,0 +1,126 @@
+/* ======================
+    Slurpy Recipe Page CSS
+    ====================== */
+
+:root {
+    --black: #111;
+    --sub-bg: #ECEDE7;
+    /* 나머지 변수는 style.css에 있다고 가정합니다. */
+}
+
+/* 전체 래퍼 */
+.content-wrap {
+    /* 좌우 마진 100px: (100% - 200px) */
+    width: calc(100% - 200px); 
+    /* 상단 마진 125px (헤더 아래 간격), 하단 마진 200px */
+    margin: 125px auto 200px;
+    /* max-width 제거: 화면이 넓어져도 100px 마진을 유지하도록 함 */
+}
+
+/* ======================
+    3그리드 레이아웃
+    (이미지 1fr / 거터 50 / 텍스트 540)
+====================== */
+.recipe-section {
+    display: grid;
+    /* Column 1: 이미지(1fr) | Column 2: 거터(50px) | Column 3: 텍스트(540px) */
+    grid-template-columns: 1fr 50px 540px; 
+    
+    /* 레시피 간 간격 200px */
+    margin-bottom: 200px;
+}
+
+/* 텍스트 영역 */
+.text-area {
+    grid-column: 3 / 4; /* 기본 위치: 3번째 컬럼 */
+    align-self: end; /* 텍스트 내용을 이미지 아래쪽에 정렬 */
+    width: 540px;
+}
+
+/* 이미지 영역 */
+.image-area {
+    grid-column: 1 / 2; /* 기본 위치: 1번째 컬럼 */
+    grid-row: 1 / 2;
+    width: 100%;
+    background-color: var(--sub-bg);
+}
+
+/* 짝수번째 레시피(2,4...) 좌우 반전 */
+.recipe-section:nth-child(even) {
+    /* Column 1: 텍스트(540px) | Column 2: 거터(50px) | Column 3: 이미지(1fr) */
+    grid-template-columns: 540px 50px 1fr;
+}
+
+/* 짝수번째일 때 위치 재설정 */
+.recipe-section:nth-child(even) .text-area {
+    grid-column: 1 / 2; /* 텍스트는 1번 컬럼으로 이동 */
+}
+.recipe-section:nth-child(even) .image-area {
+    grid-column: 3 / 4; /* 이미지는 3번 컬럼으로 이동 */
+}
+
+
+/* ======================
+    이미지 영역
+====================== */
+.image-area img {
+    width: 100%;
+    height: auto; /* 이미지 원본 비율 유지 */
+    display: block;
+}
+
+
+/* ======================
+    텍스트 영역 (폰트 크기 요청 사항 반영)
+====================== */
+.recipe-number {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.recipe-title {
+    font-size: 96px; /* 요청된 크기 */
+    font-weight: bold;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.recipe-subtitle {
+    font-size: 36px; /* 요청된 크기 */
+    font-weight: normal;
+    margin-bottom: 60px;
+}
+
+.recipe-body,
+.recipe-content ul li {
+    font-size: 20px; /* 요청된 크기 */
+    line-height: 1.6;
+}
+
+.recipe-content ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.recipe-content ul li {
+    margin-bottom: 10px;
+}
+
+
+/* ======================
+    푸터
+====================== */
+.footer {
+    width: calc(100% - 200px);
+    margin: 100px auto 80px; 
+    color: #333;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer .brand {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}

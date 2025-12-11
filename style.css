@@ -1,0 +1,132 @@
+:root {
+    --main-bg: #EBEDE8;
+    --sub-bg: #DFE0D7;
+    --point: #FF8A3D;
+    --point1: #BEE3C2;
+    --black: #1f1f1f;
+    --gray: #d9d9d9;
+    --mint: #bee3c2;
+}
+
+body {
+    margin: 0;
+    background-color: var(--main-bg);
+    font-family: "Maruburi", "Pretendard";
+    color: var(--black);
+    /* fixed header 때문에 body 상단에 여백 추가 */
+    padding-top: 104px; /* 헤더 높이에 맞게 조정 (33px(상단padding) + 33px(하단padding) + 대략적인 내부 콘텐츠 높이) */
+}
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+/* ======================================================= */
+/* HEADER - 수정된 부분 */
+/* ======================================================= */
+.header {
+    width: 100%;
+    padding: 33px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--main-bg);
+    
+    /* === 헤더 고정 (추가된 부분) === */
+    position: fixed; 
+    top: 0; 
+    left: 0; /* 화면 좌측 끝에 고정 */
+    z-index: 1000; /* 다른 요소 위에 표시 */
+    /* =============================== */
+}
+
+.logo {
+    text-decoration: none;
+    color: var(--black);
+    font-size: 48px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.nav ul {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav a {
+    text-decoration: none;
+    color: var(--black);
+    font-size: 20px;
+    letter-spacing: 0.3px;
+    display: inline-block;
+    transition: color 0.3s, transform 0.1s; 
+}
+
+.nav a:hover {
+    color: var(--point);
+    transform: scale(1.02);
+}
+
+/* ======================================================= */
+/* FOOTER */
+/* ======================================================= */
+.footer {
+    width: 100%;
+    padding: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-top: 2px solid var(--sub-bg);
+    background-color: var(--main-bg);
+}
+
+.footer-left .brand {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.footer-left p {
+    margin: 4px 0;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.footer-right p {
+    margin: 4px 0;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.footer-right {
+    text-align: right;
+}
+
+/* ======================================================= */
+/* MEDIA QUERY */
+/* ======================================================= */
+@media (max-width: 900px) {
+    /* 헤더 고정 후 패딩 값 재설정 */
+    .header {
+        padding: 20px 30px; /* 작은 화면에 맞게 패딩 조정 예시 */
+    }
+    
+    /* 작은 화면에서 body 상단 여백 재조정 (필요하다면) */
+    body {
+        padding-top: 60px; /* 재조정된 헤더 높이에 맞게 설정 */
+    }
+
+    .news-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .news-aside {
+        width: 100%
+    }
+}
