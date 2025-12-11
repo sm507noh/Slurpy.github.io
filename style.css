@@ -13,9 +13,9 @@ body {
     background-color: var(--main-bg);
     font-family: "Maruburi", "Pretendard";
     color: var(--black);
-    /* fixed header 때문에 body 상단에 여백 추가 */
-    padding-top: 104px; /* 헤더 높이에 맞게 조정 (33px(상단padding) + 33px(하단padding) + 대략적인 내부 콘텐츠 높이) */
+    padding-top: 50px; 
 }
+
 * {
     box-sizing: border-box;
 }
@@ -24,29 +24,23 @@ html, body {
     overflow-x: hidden;
 }
 
-/* ======================================================= */
-/* HEADER - 수정된 부분 */
-/* ======================================================= */
 .header {
     width: 100%;
-    padding: 33px 100px;
+    padding: 15px 50px; 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--main-bg);
-    
-    /* === 헤더 고정 (추가된 부분) === */
-    position: fixed; 
+    background-color: rgba(235, 237, 232, 0.7); 
+    position: fixed;
     top: 0; 
-    left: 0; /* 화면 좌측 끝에 고정 */
-    z-index: 1000; /* 다른 요소 위에 표시 */
-    /* =============================== */
+    left: 0; 
+    z-index: 1000; 
 }
 
 .logo {
     text-decoration: none;
     color: var(--black);
-    font-size: 48px;
+    font-size: 48px; 
     font-weight: bold;
     margin: 0;
 }
@@ -69,7 +63,7 @@ html, body {
 }
 
 .nav a:hover {
-    color: var(--point);
+    color: var(--point); 
     transform: scale(1.02);
 }
 
@@ -108,25 +102,56 @@ html, body {
     text-align: right;
 }
 
-/* ======================================================= */
-/* MEDIA QUERY */
-/* ======================================================= */
-@media (max-width: 900px) {
-    /* 헤더 고정 후 패딩 값 재설정 */
-    .header {
-        padding: 20px 30px; /* 작은 화면에 맞게 패딩 조정 예시 */
+@media (max-width: 1200px) {
+    .page-container {
+        width: calc(100% - 100px);
     }
-    
-    /* 작은 화면에서 body 상단 여백 재조정 (필요하다면) */
-    body {
-        padding-top: 60px; /* 재조정된 헤더 높이에 맞게 설정 */
-    }
-
-    .news-container {
+    .footer {
         flex-direction: column;
         align-items: center;
+        padding: 50px 50px;
     }
-    .news-aside {
-        width: 100%
+    .footer-right {
+        text-align: center;
+        margin-top: 20px;
     }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 20px;
+        align-items: center;
+    }
+    .nav ul {
+        flex-direction: column;
+        margin-top: 10px;
+        text-align: center;
+    }
+    .nav ul li {
+        margin: 5px 0;
+    }
+    .page-container {
+        width: calc(100% - 40px); 
+        margin: 50px auto; 
+    }
+    .main-visual {
+        margin-top: 30px;
+    }
+}
+
+.content-image {
+    border: 2px solid #C0C0B8 !important; 
+    background-color: transparent !important; 
+    width: 540px; 
+    height: 540px; 
+}
+
+.content-image img {
+    object-fit: contain !important; 
+    max-width: 100%;
+    max-height: 100%;
+    width: auto !important; 
+    height: auto !important;
 }
