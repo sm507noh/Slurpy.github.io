@@ -56,3 +56,24 @@
     font-size: 14px;
     margin-top: 4px;
 }
+
+/* ======================================================= */
+/* RWD: 그리드 레이아웃 최적화 (3grid.css) */
+/* ======================================================= */
+
+/* 1. 태블릿 (992px 이하) - 2열 구조 */
+/* 992px 이하일 때 2열로 변경 */
+@media (max-width: 992px) {
+    .ramen-grid {
+        grid-template-columns: repeat(2, 1fr); 
+        /* ... 기타 스타일 ... */
+    }
+}
+
+/* 576px 이하일 때 1열로 변경 */
+@media (max-width: 576px) {
+    .ramen-grid {
+        grid-template-columns: 1fr; 
+        /* ... 기타 스타일 ... */
+    }
+}
