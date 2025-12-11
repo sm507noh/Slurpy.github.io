@@ -56,7 +56,7 @@
   font-weight: bold;
   line-height: 1;
   margin-bottom: 0; /* 서브타이틀과 0px 간격 */
-  margin-top: 24px; /* 숫자와 24px 간격 */
+  margin-top: 14px; /* 숫자와 24px 간격 */
 }
 
 /* 🎯 서브타이틀 스타일: 타이틀과 0px 간격 */
@@ -89,3 +89,4 @@
 .recipe-content ul li {
   margin-bottom: 10px;
 }
+
