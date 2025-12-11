@@ -1,0 +1,171 @@
+/* tip.css */
+
+/* 1. 전체 컨테이너 설정 (마진 없이 풀스크린) */
+.tip-content {
+    /* <main> 태그에 padding이나 margin이 기본적으로 있다면 제거 */
+    padding: 0;
+    margin: 0;
+    /* 화면 높이까지 꽉 채우기 위해 최소 높이 설정 */
+    min-height: calc(100vh - 100px); /* 헤더/푸터 높이에 따라 조정 */
+}
+
+.tip-container {
+    display: flex;
+    /* 4개의 아이템이 가로로 꽉 차도록 설정 */
+    width: 100%;
+    /* 이미지 높이에 맞춰 컨테이너 높이 설정 */
+    height: 960px; 
+    margin: 0; /* 좌우 마진 없이 꽉 채우기 */
+    
+    /* [수정 1] 헤더 높이만큼 아래로 마진 추가 (헤더 높이를 100px로 가정) */
+    margin-top: 100px; 
+    
+    /* [수정 2] 콘텐츠와 푸터 사이의 간격 130px 추가 */
+    margin-bottom: 130px;
+}
+
+/* 2. 각 아이템 기본 설정 (배경 이미지, 4등분, 호버 전 상태) */
+.tip-item {
+    flex: 1; 
+    position: relative;
+    overflow: hidden;
+    
+    background-size: cover;
+    background-position: center;
+    
+    /* 호버 애니메이션을 위한 transition 설정 */
+    transition: background-image 0.5s ease-in-out;
+}
+
+/* 각 아이템의 배경 이미지 경로 설정 (실제 이미지 경로로 대체해야 합니다) */
+.tip-item-1 { background-image: url('tip1.png'); } 
+.tip-item-2 { background-image: url('tip2.png'); }
+.tip-item-3 { background-image: url('tip3.png'); }
+.tip-item-4 { background-image: url('tip4.png'); }
+
+
+/* 3. 호버 전 오버레이 (블러 처리 및 숫자) */
+.item-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    backdrop-filter: blur(5px); 
+    background-color: rgba(255, 255, 255, 0.2); 
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    transition: all 0.5s ease-in-out;
+}
+
+/* 3-1. 호버 전 텍스트 (큰 숫자) */
+.item-number {
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    font-size: 96px;
+    color: #1F22C9;
+    font-weight: bold;
+    opacity: 1; 
+    transition: opacity 0.3s;
+}
+
+/* 4. 호버 후 스타일 */
+
+/* 4-1. 호버 시 오버레이 투명하게 만듦 */
+.tip-item:hover .item-overlay {
+    background-color: transparent;
+    backdrop-filter: none;
+    
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 50px; 
+}
+
+/* 4-2. 호버 시 숫자 숨기기 */
+.tip-item:hover .item-number {
+    opacity: 0;
+}
+
+/* 4-3. 호버 시 상세 내용 표시 */
+.item-detail {
+    /* 기본적으로 숨김 상태 */
+    opacity: 0;
+    /* [수정 3] 텍스트 등장 시 애니메이션 제거: transform 속성 제거 */
+    
+    color: #ffffff;
+    
+    /* [수정 3] 텍스트 등장 시 애니메이션 제거: transition 속성 제거 */
+    /* transition: opacity 0.5s, transform 0.5s; */
+}
+
+.tip-item:hover .item-detail {
+    /* 호버 시 즉시 표시 */
+    opacity: 1;
+    /* transform: translateY(0); 제거 */
+}
+
+/* 5. 상세 텍스트 스타일 */
+.item-detail .title {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.item-detail .subtitle {
+    font-size: 26px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+.item-detail .body {
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+/* ======================================================= */
+/* RWD: 992px 이하 태블릿 및 모바일 최적화 (tip.css) */
+/* ======================================================= */
+
+/* 1. 태블릿 (992px 이하) - 2x2 구조 */
+@media (max-width: 992px) {
+    .tip-container {
+        /* flex-wrap을 사용하여 2열로 감싸기 */
+        flex-wrap: wrap; 
+        /* 960px 고정 높이 대신 유동적으로 변경 */
+        height: auto; 
+        margin-top: 50px; /* 헤더 간격 축소 */
+    }
+    .tip-item {
+        /* 너비를 50%로 설정하여 한 줄에 2개씩 배치 */
+        width: 50%; 
+        height: 500px; /* 높이 조정 */
+    }
+}
+
+/* 2. 모바일 (576px 이하) - 1x4 구조 */
+@media (max-width: 576px) {
+    .tip-item {
+        /* 너비를 100%로 설정하여 한 줄에 1개씩 수직 배치 */
+        width: 100%; 
+        height: 350px; /* 모바일 높이 조정 */
+    }
+    /* 호버 시 상세 텍스트 패딩 축소 */
+    .tip-item:hover .item-overlay {
+        padding: 30px;
+    }
+    .item-detail .title {
+        font-size: 28px;
+    }
+    .item-detail .subtitle {
+        font-size: 20px;
+    }
+    .item-detail .body {
+        font-size: 16px;
+    }
+}
