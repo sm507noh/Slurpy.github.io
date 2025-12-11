@@ -1,38 +1,25 @@
 .catalog-container h1 {
-    /* [핵심 1] 중앙 정렬 */
     text-align: center;
-    
-    /* [핵심 2] 폰트 크기 설정 (원하시는 크기로 조정하세요) */
-    font-size: 56px; /* 예시 크기입니다. */
-    
-    /* <h1> 위/아래 여백도 조정할 수 있습니다. */
+    font-size: 56px; 
     margin-top: 80px;
     margin-bottom: 50px;
 }
 
-/* ======================================================= */
-/* RWD: 그리드 레이아웃 최적화 (3grid.css) */
-/* ======================================================= */
-
-/* 1. 태블릿 (992px 이하) - 2열 구조 */
 @media (max-width: 992px) {
     .ramen-grid {
-        /* 3열 -> 2열로 변경 */
         grid-template-columns: repeat(2, 1fr); 
         gap: 20px;
     }
 }
 
-/* 2. 모바일 (576px 이하) - 1열 구조 */
 @media (max-width: 576px) {
     .ramen-grid {
-        /* 2열 -> 1열로 변경 */
         grid-template-columns: 1fr; 
         gap: 15px;
     }
-    /* 썸네일 높이 조정 */
     .item .thumb {
         height: 350px;
         width: 100%;
     }
+
 }
