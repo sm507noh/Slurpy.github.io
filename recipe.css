@@ -1,52 +1,22 @@
-:root {
-  --black: #111;
-  --sub-bg: #ECEDE7;
-}
-
-.content-wrap {
-  width: calc(100% - 200px);
-  margin: 125px auto 200px;
-}
-
-.recipe-section {
-  display: grid;
-  grid-template-columns: 1fr 50px 540px;
-  margin-bottom: 200px;
-  height: auto;
-}
-
-/* 🎯 텍스트 영역: Flexbox를 사용하여 내용 배치 */
+/* 🎯 텍스트 영역: Flexbox를 사용하여 세로로 배치 */
 .text-area {
   grid-column: 3 / 4;
   grid-row: 1 / 2;
   display: flex;
   flex-direction: column; /* 세로 방향으로 요소 배치 */
-  /* justify-content: space-between;  -> 제거하고 margin-top: auto 사용 */
   width: 540px;
 }
 
-.image-area {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
-  width: 100%;
-  background-color: var(--sub-bg);
-}
-
-.recipe-section:nth-child(even) {
-  grid-template-columns: 540px 50px 1fr;
-}
-
-.recipe-section:nth-child(even) .text-area {
-  grid-column: 1 / 2;
-}
-.recipe-section:nth-child(even) .image-area {
-  grid-column: 3 / 4;
+/* NEW: 제목 그룹 스타일 */
+.header-area {
+  /* 제목 영역은 Flexbox에 의해 밀려나지 않고 상단에 유지됩니다. */
+  margin-bottom: 0; /* 제목 블록과 본문 블록의 기본 간격 제거 */
 }
 
 /* 🎯 숫자 스타일 */
 .recipe-number {
   font-size: 20px;
-  margin-bottom: 0; /* 다음 요소(.recipe-title)와의 간격을 .recipe-title에서 조정 */
+  margin-bottom: 0; /* 다음 요소(.recipe-title)와의 간격 제거 */
   margin-top: 0;
 }
 
@@ -56,7 +26,7 @@
   font-weight: bold;
   line-height: 1;
   margin-bottom: 0; /* 서브타이틀과 0px 간격 */
-  margin-top: 14px; /* 숫자와 24px 간격 */
+  margin-top: 24px; /* 숫자와 24px 간격 */
 }
 
 /* 🎯 서브타이틀 스타일: 타이틀과 0px 간격 */
@@ -64,29 +34,25 @@
   font-size: 36px;
   font-weight: normal;
   line-height: 1;
-  margin-bottom: 0; /* 기존 큰 간격 제거 */
-  margin-top: 0; /* 타이틀과 0px 간격 */
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 /* 🎯 본문/내용 영역: Flexbox의 힘을 이용해 하단으로 밀어내기 */
 .recipe-content {
-  /* .text-area 내부에서 이 요소가 남은 공간을 모두 차지하도록 하여 가장 아래로 정렬 */
+  /* 🚨 이 속성이 제목 영역 아래의 남은 공간을 모두 차지하도록 만듭니다. */
   margin-top: auto; 
-  padding-top: 30px; /* 서브타이틀과 본문 내용 사이의 최소 간격 (조정 가능) */
+  /* **서브타이틀과 본문 시작** 사이의 간격을 400px에 가깝게 주고 싶다면,
+     이곳에 padding-top을 추가합니다. (예: 400px)
+     
+     **주의:** 이미지 높이가 제목 + 본문 높이보다 낮으면 간격이 줄어듭니다.
+     하단 정렬이 우선이므로 이 간격은 '최소' 간격으로 동작합니다.
+  */
+  padding-top: 400px; 
 }
-
+/* 나머지 본문 관련 스타일은 동일 */
 .recipe-body,
 .recipe-content ul li {
   font-size: 20px;
   line-height: 1.6;
 }
-
-.recipe-content ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.recipe-content ul li {
-  margin-bottom: 10px;
-}
-
