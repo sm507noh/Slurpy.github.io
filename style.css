@@ -1,148 +1,4 @@
-:root {
-    --main-bg: #EBEDE8;
-    --sub-bg: #DFE0D7;
-    --point: #FF8A3D;
-    --point1: #BEE3C2;
-    --black: #1f1f1f;
-    --gray: #d9d9d9;
-    --mint: #bee3c2;
-}
-
-body {
-    margin: 0;
-    background-color: var(--main-bg);
-    font-family: "Maruburi", "Pretendard";
-    color: var(--black);
-    
-    padding-top: 50px; /* 고정 헤더 높이만큼 여백 */
-}
-
-* {
-    box-sizing: border-box;
-}
-
-html, body {
-    overflow-x: hidden; /* 가로 스크롤 방지 */
-}
-
-/* =========================================================
-   헤더 (Header)
-   ========================================================= */
-.header {
-    width: 100%;
-    
-    padding: 15px 50px; 
-    
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-    background-color: rgba(235, 237, 232, 0.7); 
-
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    z-index: 1000; 
-}
-
-.logo {
-    text-decoration: none;
-    color: var(--black);
-    font-size: 48px; 
-    font-weight: bold;
-    margin: 0;
-}
-
-.nav ul {
-    display: flex;
-    gap: 40px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.nav a {
-    text-decoration: none;
-    color: var(--black);
-    font-size: 20px;
-    letter-spacing: 0.3px;
-    display: inline-block;
-    transition: color 0.3s, transform 0.1s; 
-}
-
-.nav a:hover {
-    color: var(--point); 
-    transform: scale(1.02);
-}
-
-/* 활성화된 메뉴 스타일 */
-.nav ul li.active a {
-    color: #FF8A3D; /* --point 변수 사용 가능 */ 
-    font-weight: bold;
-}
-.nav ul li:hover a {
-    color: #FF8A3D;
-}
-
-
-/* =========================================================
-   푸터 (Footer)
-   ========================================================= */
-.footer {
-    width: 100%;
-    padding: 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    border-top: 2px solid var(--sub-bg);
-    background-color: var(--main-bg);
-}
-
-.footer-left .brand {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 6px;
-}
-
-.footer-left p {
-    margin: 4px 0;
-    font-size: 15px;
-    line-height: 1.5;
-}
-
-.footer-right p {
-    margin: 4px 0;
-    font-size: 12px;
-    line-height: 1.5;
-}
-
-.footer-right {
-    text-align: right;
-}
-
-/* =========================================================
-   기타 콘텐츠 스타일 (테두리 복구 포함)
-   ========================================================= */
-
-.content-image {
-    /* 이전에 문제가 되었던 테두리 스타일 복구 */
-    border: 2px solid #C0C0B8 !important; 
-    
-    background-color: transparent !important; 
-    
-    width: 540px; 
-    height: 540px; 
-}
-
-.content-image img {
-    object-fit: contain !important; 
-    
-    max-width: 100%;
-    max-height: 100%;
-
-    width: auto !important; 
-    height: auto !important;
-}
+/* ... 파일 상단 코드 유지 ... */
 
 /* =========================================================
    반응형 스타일 시작
@@ -150,10 +6,7 @@ html, body {
 
 /* 태블릿 (Max-width: 1200px) */
 @media (max-width: 1200px) {
-    /* .page-container은 HTML에 없으므로, .catalog-container가 있다면 해당 클래스에 적용 필요 */
-    /* .page-container {
-        width: calc(100% - 100px);
-    } */
+    /* ... 1200px 스타일 유지 ... */
 
     .footer {
         flex-direction: column;
@@ -168,34 +21,42 @@ html, body {
 
 /* 모바일/소형 태블릿 (Max-width: 768px) */
 @media (max-width: 768px) {
-    /* 🚨 [핵심 수정]: 헤더 메뉴를 세로로 정렬 */
+    /* 🚨 [수정]: 헤더 전체 패딩 및 정렬 조정 */
     .header {
         flex-direction: column;
         height: auto;
-        padding: 15px 20px;
+        padding: 15px 20px; /* 좌우 패딩 축소 */
         align-items: center;
     }
-    .nav ul {
-        flex-direction: column; /* 세로 정렬 */
-        margin-top: 10px;
-        text-align: center;
-        gap: 0; /* 메뉴 간격 줄임 */
-    }
-    .nav ul li {
-        margin: 5px 0;
+    
+    /* 🚨 [추가]: 로고 크기 축소 */
+    .logo {
+        font-size: 32px;
+        margin-bottom: 5px;
     }
     
-    /* 🚨 [주의]: .page-container이 HTML에 있다면 이 코드를 사용하여 반응형 너비를 설정해야 함 */
-    /* .page-container {
-        width: calc(100% - 40px); 
-        margin: 50px auto; 
-    } */
-    /* .main-visual {
-        margin-top: 30px;
-    } */
-
+    /* 🚨 [수정]: 메뉴 목록을 가로로 유지하고 폰트 크기 조정 */
+    .nav ul {
+        flex-direction: row; /* ⬅️ 세로 정렬 대신 가로 정렬 유지 */
+        flex-wrap: wrap; /* ⬅️ 공간 부족 시 줄바꿈 허용 */
+        justify-content: center; /* 중앙 정렬 */
+        margin-top: 10px;
+        gap: 15px; /* 메뉴 간격 조정 */
+    }
+    
+    /* 🚨 [수정]: 메뉴 폰트 크기 조정 */
+    .nav a {
+        font-size: 16px;
+    }
+    
+    .nav ul li {
+        margin: 0;
+    }
+    
     /* 모바일에서는 기본 body padding-top을 줄여 헤더가 차지하는 공간 축소 */
     body {
-        padding-top: 100px; /* 헤더가 세로로 길어졌으므로 높이 재조정 */
+        padding-top: 100px; /* 헤더가 길어졌으므로 높이 재조정 */
     }
+
+    /* .page-container과 같은 다른 요소들에 대한 모바일 반응형 코드도 함께 적용하는 것이 좋습니다. */
 }
