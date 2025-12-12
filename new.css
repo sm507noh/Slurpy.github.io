@@ -1,137 +1,132 @@
-/* ======================================================= */
-/* MAIN CONTENT LAYOUT (new.css) */
-/* ======================================================= */
 
-/* 1. 페이지 컨테이너: 마진 조정 */
 .page-container {
-    /* 좌우 마진 100px */
-    width: calc(100% - 200px); 
-    /* 헤더 아래 여백과 푸터 위 여백 조정 */
-    margin: 100px auto 150px auto; 
+    /* 좌우 마진 100px */
+    width: calc(100% - 200px); 
+    /* 헤더 아래 여백과 푸터 위 여백 조정 */
+    margin: 100px auto 150px auto; 
 }
 
-/* 2. 섹션 레이아웃: 사진(540px) + 간격(50px) + 텍스트(1fr) 구조로 통일 */
 .content-section {
-    display: grid;
-    /* Column 1: 이미지(540px 고정) | Column 2: 간격(50px) | Column 3: 텍스트(1fr) */
-    grid-template-columns: 540px 50px 1fr; 
-    
-    /* [수정] 콘텐츠 섹션 간의 수직 간격 (200px) */
-    margin-bottom: 200px; 
+    display: grid;
+    grid-template-columns: 540px 50px 1fr; 
+    
+    margin-bottom: 200px; 
 }
 
 .content-image {
-    width: 540px;
-    height: 540px; 
-    
-    /* [수정] 평소 배경색은 var(--sub-bg)로 채우기 */
-    background-color: var(--sub-bg); 
-    
-    /* [수정] 평소 테두리 제거 */
-    border: none; 
-    
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    overflow: hidden;
-    
-    /* 배경색이 부드럽게 변하도록 transition 적용 */
-    transition: background-color 0.3s ease-in-out; 
+    width: 540px;
+    height: 540px; 
+   
+    background-color: var(--sub-bg); 
+    
+    border: none; 
+    
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    overflow: hidden;
+    
+    transition: background-color 0.3s ease-in-out; 
 }
 
 .content-image:hover {
-    /* [핵심 수정] 마우스 오버 시 배경색을 #FF8A3D로 변경 */
-    background-color: #FF8A3D;
+
+    background-color: #FF8A3D;
 }
 
-/* 4. 텍스트 영역 */
 .content-text {
-    grid-column: 3 / 4; 
-    grid-row: 1 / 2;
-    
-    align-self: start; 
-    
-    /* [수정] 세로 라인 및 관련 스타일 모두 제거됨 */
-    position: static; /* position: relative; 제거 */
+    grid-column: 3 / 4; 
+    grid-row: 1 / 2;
+    
+    align-self: start; 
+    position: static; 
 }
 
-/* 5. 세로 라인 구현 관련 CSS 제거 */
-/* 이전 코드에 있던 ::before 가상 요소 스타일을 완전히 제거합니다. */
-
-
-/* 6. 텍스트 스타일 조정 */
 .content-title {
-    font-size: 40px; 
-    font-weight: bold;
-    margin-top: 0;
-    margin-bottom: 20px;
-    line-height: 1.1;
+    font-size: 40px; 
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 20px;
+    line-height: 1.1;
 }
 .content-body {
-    font-size: 20px;
-    line-height: 1.6;
+    font-size: 20px;
+    line-height: 1.6;
 }
 
 .content-image img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain; 
-    
-    /* [추가] transform 변화를 부드럽게 하기 위해 transition 유지 */
-    transition: transform 0.3s; 
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; 
+    
+    transition: transform 0.3s; 
 }
 
 .content-image:hover img {
-    /* [핵심 유지] 애니메이션 적용 */
-    animation: shake 2s ease-in-out infinite alternate; 
+    animation: shake 2s ease-in-out infinite alternate; 
 }
 
 @keyframes shake {
-    0% { 
-        transform: rotate(0deg); 
-    }
-    25% { 
-        transform: rotate(0.5deg); 
-    }
-    75% { 
-        transform: rotate(-0.5deg); 
-    }
-    100% { 
-        transform: rotate(0deg); 
-    }
+    0% { 
+        transform: rotate(0deg); 
+    }
+    25% { 
+        transform: rotate(0.5deg); 
+    }
+    75% { 
+        transform: rotate(-0.5deg); 
+    }
+    100% { 
+        transform: rotate(0deg); 
+    }
 }
 
-/* ======================================================= */
-/* RWD: 992px 이하 태블릿 및 모바일 최적화 (new.css) */
-/* ======================================================= */
-
 @media (max-width: 992px) {
-    /* 이미지(540px) + 텍스트 구조를 수직으로 쌓기 */
-    .content-section {
-        /* 1열 구조로 변경: 이미지(100%) -> 텍스트(100%) */
-        grid-template-columns: 1fr; 
-        margin-bottom: 100px; /* 섹션 간격 축소 */
-    }
-    
-    /* 이미지와 텍스트를 모두 첫 번째 행에 배치 (수직 배치) */
-    .content-image,
-    .content-text {
-        grid-column: 1 / 2;
-        /* grid-row: 1 / 2;는 제거하거나, 이미지와 텍스트가 순서대로 쌓이도록 조정 */
-    }
-    
-    /* 이미지 크기를 컨테이너 폭에 맞게 100%로 변경 */
-    .content-image {
+    .content-section {
+        grid-template-columns: 1fr; 
+        margin-bottom: 100px; 
+    }
+    
+    .content-image,
+    .content-text {
+        grid-column: 1 / 2;
+    }
+    
+    .content-image {
+        width: 100%;
+        height: 400px; 
+        margin-bottom: 30px;
+    }
+    
+    .content-title {
+        font-size: 32px;
+    }
+    .content-body {
+        font-size: 18px;
+    }
+}
+@media (max-width: 576px) {
+    .page-container {
         width: 100%;
-        /* 높이도 유동적으로 설정하거나, 비율 유지 */
-        height: 400px; 
-        margin-bottom: 30px;
+        padding: 0 15px;
+        margin: 50px auto 80px auto;
+    }
+    
+    .content-section {
+        margin-bottom: 50px; 
+    }
+    
+    .content-image {
+        height: 300px; 
+        margin-bottom: 20px; 
     }
     
     .content-title {
-        font-size: 32px;
+        font-size: 24px; 
+        margin-bottom: 15px;
     }
     .content-body {
-        font-size: 18px;
+        font-size: 16px; ㅋ
+        line-height: 1.5;
     }
 }
