@@ -14,7 +14,7 @@ body {
     font-family: "Maruburi", "Pretendard";
     color: var(--black);
     
-    padding-top: 50px; 
+    padding-top: 50px; /* 고정 헤더 높이만큼 여백 */
 }
 
 * {
@@ -22,9 +22,12 @@ body {
 }
 
 html, body {
-    overflow-x: hidden;
+    overflow-x: hidden; /* 가로 스크롤 방지 */
 }
 
+/* =========================================================
+   헤더 (Header)
+   ========================================================= */
 .header {
     width: 100%;
     
@@ -72,6 +75,19 @@ html, body {
     transform: scale(1.02);
 }
 
+/* 활성화된 메뉴 스타일 */
+.nav ul li.active a {
+    color: #FF8A3D; /* --point 변수 사용 가능 */ 
+    font-weight: bold;
+}
+.nav ul li:hover a {
+    color: #FF8A3D;
+}
+
+
+/* =========================================================
+   푸터 (Footer)
+   ========================================================= */
 .footer {
     width: 100%;
     padding: 100px;
@@ -104,47 +120,12 @@ html, body {
     text-align: right;
 }
 
-@media (max-width: 1200px) {
-    .page-container {
-        width: calc(100% - 100px);
-    }
-
-    .footer {
-        flex-direction: column;
-        align-items: center;
-        padding: 50px 50px;
-    }
-    .footer-right {
-        text-align: center;
-        margin-top: 20px;
-    }
-}
-
-@media (max-width: 768px) {
-    .header {
-        flex-direction: column;
-        height: auto;
-        padding: 15px 20px;
-        align-items: center;
-    }
-    .nav ul {
-        flex-direction: column;
-        margin-top: 10px;
-        text-align: center;
-    }
-    .nav ul li {
-        margin: 5px 0;
-    }
-    .page-container {
-        width: calc(100% - 40px); 
-        margin: 50px auto; 
-    }
-    .main-visual {
-        margin-top: 30px;
-    }
-}
+/* =========================================================
+   기타 콘텐츠 스타일 (테두리 복구 포함)
+   ========================================================= */
 
 .content-image {
+    /* 이전에 문제가 되었던 테두리 스타일 복구 */
     border: 2px solid #C0C0B8 !important; 
     
     background-color: transparent !important; 
@@ -159,21 +140,62 @@ html, body {
     max-width: 100%;
     max-height: 100%;
 
-  
     width: auto !important; 
     height: auto !important;
 }
 
-.nav ul li a {
-    color: #000000; 
-    text-decoration: none;
-    transition: color 0.3s;
-}
-.nav ul li.active a {
-    color: #FF8A3D; 
-    font-weight: bold;
+/* =========================================================
+   반응형 스타일 시작
+   ========================================================= */
+
+/* 태블릿 (Max-width: 1200px) */
+@media (max-width: 1200px) {
+    /* .page-container은 HTML에 없으므로, .catalog-container가 있다면 해당 클래스에 적용 필요 */
+    /* .page-container {
+        width: calc(100% - 100px);
+    } */
+
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        padding: 50px 50px;
+    }
+    .footer-right {
+        text-align: center;
+        margin-top: 20px;
+    }
 }
 
-.nav ul li:hover a {
-    color: #FF8A3D;
+/* 모바일/소형 태블릿 (Max-width: 768px) */
+@media (max-width: 768px) {
+    /* 🚨 [핵심 수정]: 헤더 메뉴를 세로로 정렬 */
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 20px;
+        align-items: center;
+    }
+    .nav ul {
+        flex-direction: column; /* 세로 정렬 */
+        margin-top: 10px;
+        text-align: center;
+        gap: 0; /* 메뉴 간격 줄임 */
+    }
+    .nav ul li {
+        margin: 5px 0;
+    }
+    
+    /* 🚨 [주의]: .page-container이 HTML에 있다면 이 코드를 사용하여 반응형 너비를 설정해야 함 */
+    /* .page-container {
+        width: calc(100% - 40px); 
+        margin: 50px auto; 
+    } */
+    /* .main-visual {
+        margin-top: 30px;
+    } */
+
+    /* 모바일에서는 기본 body padding-top을 줄여 헤더가 차지하는 공간 축소 */
+    body {
+        padding-top: 100px; /* 헤더가 세로로 길어졌으므로 높이 재조정 */
+    }
 }
