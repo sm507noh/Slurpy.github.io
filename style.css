@@ -155,5 +155,27 @@ html, body {
     overflow-x: hidden; 
 }
 
+.filter {
+
+    display: flex;
+    gap: 10px; 
+    margin: 20px 0;
+}
+
+.filter a {
+
+    border: 1px solid #ddd;
+    padding: 8px 15px;
+    text-decoration: none;
+    color: #333;
+    display: block; 
+    border-radius: 5px;
+}
+
+.filter a.active {
+    background-color: #333;
+    color: white;
+    border-color: #333;
+}
 
 
