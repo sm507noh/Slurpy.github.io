@@ -67,9 +67,6 @@ html, body {
     transform: scale(1.02);
 }
 
-/* ======================================================= */
-/* FOOTER */
-/* ======================================================= */
 .footer {
     width: 100%;
     padding: 100px;
@@ -154,4 +151,19 @@ html, body {
     max-height: 100%;
     width: auto !important; 
     height: auto !important;
+}
+
+.nav ul li a {
+    color: #000000; /* 예시 */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav ul li.active a {
+    color: #FF8A3D;
+    font-weight: bold;
+}
+
+.nav ul li:hover a {
+    color: #FF8A3D;
 }
