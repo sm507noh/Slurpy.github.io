@@ -61,14 +61,22 @@
     .ramen-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px; 
+        width: 100%;
+        box-sizing: border-box; 
+    }
+    
+    .filter a {
+        padding: 5px 10px;
+        font-size: 14px;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px) 
     .ramen-grid {
         grid-template-columns: 1fr;
     }
 }
+
 
 
 
