@@ -149,4 +149,11 @@ html, body {
     color: #FF8A3D;
 }
 
+.catalog-container {
+    width: 100%; 
+    box-sizing: border-box;
+    overflow-x: hidden; 
+}
+
+
 
